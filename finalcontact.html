@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Your Company</title>
+  <link rel="stylesheet" href="index.html">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#7c5cff;
+      --accent-2:#2fd7c9;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --maxw:980px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#051025 0%, #071731 60%);
+      color:#ecf2f8;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      display:grid;
+      grid-template-columns:1fr 460px;
+      gap:0;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    }
+    @media (max-width:900px){
+      .wrap{grid-template-columns:1fr;}
+      .side{order:-1}
+    }
+
+    /* Left: form */
+    .form-panel{
+      padding:36px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+    }
+    h1{margin:0 0 6px 0;font-size:22px}
+    p.lead{margin:0 0 18px 0;color:var(--muted);font-size:14px}
+
+    form{display:grid;gap:12px}
+    .row{display:flex;gap:12px}
+    .col{flex:1;min-width:0}
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+    input[type=text], input[type=email], input[type=tel], textarea, select{
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:var(--glass);
+      color:inherit;
+      font-size:14px;
+      outline:none;
+      transition:box-shadow .12s, border-color .12s;
+    }
+    input:focus, textarea:focus{box-shadow:0 6px 18px rgba(124,92,255,0.12); border-color:rgba(124,92,255,0.35)}
+    textarea{min-height:120px;resize:vertical}
+    .hint{font-size:12px;color:var(--muted)}
+    .flex-between{display:flex;align-items:center;justify-content:space-between}
+
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051024;font-weight:600;cursor:pointer;font-size:15px
+    }
+    .btn:active{transform:translateY(1px)}
+
+    .secondary{
+      background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:9px 12px;border-radius:10px;cursor:pointer
+    }
+
+    .side{
+      padding:28px;background-image:linear-gradient(180deg, rgba(124,92,255,0.06), rgba(47,215,201,0.02));display:flex;flex-direction:column;justify-content:center;gap:18px;
+    }
+    .contact-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .muted{color:var(--muted)}
+
+    .socials{display:flex;gap:10px}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.02);text-decoration:none;color:inherit;font-size:13px}
+
+    /* small helper */
+    .success{padding:12px 14px;border-radius:10px;background:linear-gradient(90deg,#10b981,#06b6d4);color:#002020;font-weight:700}
+    .error{padding:10px 12px;border-radius:10px;background:#ff4d6d;color:#2a0210}
+
+    footer.note{font-size:12px;color:var(--muted);text-align:center;padding:12px}
+
+    /* accessibility */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+    <a href="index.html"> Home</a>
+  <main class="wrap" role="main">
+    <section class="form-panel" aria-labelledby="contact-heading">
+      <h1 id="contact-heading">Get in touch</h1>
+      <p class="lead">Have a question, project idea or feedback? Drop a message and we'll get back within 1–2 business days.</p>
+
+      <form id="contactForm" novalidate action="mailto:shaikmurtaza.1106@gmail.com" method="post" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required minlength="2" />
+          </div>
+          <div class="col">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="+91 00000 00000" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@domain.com" required />
+          </div>
+          <div class="col">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" aria-label="subject">
+              <option value="general">General inquiry</option>
+              <option value="quote">Request a quote</option>
+              <option value="bug">Report a bug</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us more..." required minlength="10"></textarea>
+          <div class="hint">Tip: include relevant links or deadlines.</div>
+        </div>
+
+        <div class="row" style="align-items:center;margin-top:6px">
+          <label style="display:flex;align-items:center;gap:10px"><input type="checkbox" id="subscribe" name="subscribe"/> <span class="muted">Subscribe to occasional updates</span></label>
+          <div style="margin-left:auto">
+            <button type="button" class="secondary" id="clearBtn">Clear</button>
+            <button type="submit" class="btn">Send message</button>
+          </div>
+        </div>
+
+        <div id="formAlert" aria-live="polite" style="margin-top:12px"></div>
+      </form>
+
+      <footer class="note">Prefer email? <a href="mailto:hello@yourcompany.com" style="color:inherit;text-decoration:underline">shaikmurtaza.1106@nscompany.com</a></footer>
+    </section>
+
+    <aside class="side" aria-label="contact details">
+      <div class="contact-card">
+        <strong>Office</strong>
+        <div class="muted">Shaik's co.in<br/>7-2-184/B<br/>Hyderabad, India</div>
+        <div style="height:12px"></div>
+        <div class="flex-between muted"><span>Phone</span><span>+91 7997878670</span></div>
+        <div class="flex-between muted" style="margin-top:6px"><span>Hours</span><span>Mon—Fri, 9am—5pm</span></div>
+      </div>
+
+      <div class="contact-card">
+        <strong>Follow</strong>
+        <div class="socials" style="margin-top:10px">
+          <a href="#" aria-label="instagram"> <!-- svg icon -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M22 5.9c-.6.3-1.2.5-1.8.6.7-.4 1.2-1 1.4-1.8-.7.4-1.5.7-2.3.9C18.6 4.8 17.4 4.3 16 4.3c-2 0-3.6 1.6-3.6 3.6 0 .3 0 .6.1.9-3-.2-5.7-1.6-7.5-3.8-.3.5-.5 1.1-.5 1.7 0 1.2.6 2.2 1.6 2.8-.6 0-1.1-.2-1.5-.4v.1c0 1.6 1.2 2.9 2.9 3.2-.3.1-.6.1-1 .1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3 2.3-1.1.9-2.4 1.4-3.9 1.4-.3 0-.7 0-1-.1 1.6 1 3.5 1.6 5.6 1.6 6.7 0 10.4-5.6 10.4-10.4v-.5c.8-.6 1.5-1.3 2-2.2-.7.3-1.4.5-2.2.6Z" fill="currentColor"/></svg>
+            Instagram
+          </a>
+          <a href="#" aria-label="whatsapp">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M4.98 3.5C4.98 4.6 4.12 5.5 3 5.5 1.88 5.5 1 4.65 1 3.5 1 2.36 1.88 1.5 3 1.5c1.12 0 1.98.86 1.98 2zM1.5 8.5h3v12h-3v-12zM9.5 8.5h2.9v1.6h.04c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.5v7.5h-3v-6.7c0-1.6 0-3.6-2.2-3.6-2.2 0-2.5 1.7-2.5 3.4v7h-3v-12z" fill="currentColor"/></svg>
+            whatsapp
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <strong>Quick links</strong>
+        <div class="muted" style="margin-top:8px"><a href="#" style="color:inherit;text-decoration:underline">Support Center</a> • <a href="#" style="color:inherit;text-decoration:underline">Careers</a></div>
+      </div>
+
+    </aside>
+  </main>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const alertBox = document.getElementById('formAlert');
+    const clearBtn = document.getElementById('clearBtn');
+
+    clearBtn.addEventListener('click', ()=>{
+      form.reset();
+      alertBox.innerHTML='';
+    });
+
+    function showMessage(type, text){
+      alertBox.innerHTML = `<div class="${type==='ok'?'success':'error'}">${text}</div>`;
+    }
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      alertBox.innerHTML='';
+      const data = new FormData(form);
+      const name = data.get('name')?.trim();
+      const email = data.get('email')?.trim();
+      const message = data.get('message')?.trim();
+
+      // simple validation (also rely on HTML validation)
+      if(!name || name.length < 2){ showMessage('err','Please enter your name (2+ characters).'); return }
+      if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showMessage('err','Please enter a valid email address.'); return }
+      if(!message || message.length < 10){ showMessage('err','Please enter a longer message (10+ characters).'); return }
+
+      // Simulate sending (frontend-only). Replace with fetch() to your server endpoint.
+      showMessage('ok','Thanks — your message was sent. We will contact you soon.');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
