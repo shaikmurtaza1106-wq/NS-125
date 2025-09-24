@@ -137,7 +137,7 @@ text-decoration: underline;
 .swiper-slide {
   text-align: center;
   transition: transform 0.5s, opacity 0.5s;
-  opacity: 1.0;
+  opacity: 1.5;
 }
 
 .swiper-slide-active {
